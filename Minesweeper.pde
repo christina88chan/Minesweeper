@@ -80,6 +80,7 @@ public void displayLosingMessage()
 
 public void displayWinningMessage()
 {
+    stroke(255);
     buttons[9][6].setLabel("Y");
     buttons[9][7].setLabel("O");
     buttons[9][8].setLabel("U");
