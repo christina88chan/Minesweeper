@@ -26,14 +26,16 @@ public void setMines()
 {
     int row = (int)(Math.random()*NUM_ROWS);
     int col = (int)(Math.random()*NUM_COLS);
-    if(!mines.contains(buttons[row][col])){
-      mines.add(buttons[row][col]);
+    for(int i = 0; i < 5; i++){
+      if(!mines.contains(buttons[row][col])){
+        mines.add(buttons[row][col]);
+      }
     }
-}
+}  
 
 public void draw ()
 {
-    background( 0 );
+    background(0);
     if(isWon() == true)
         displayWinningMessage();
 }
@@ -101,7 +103,7 @@ public boolean isValid(int r, int c)
       if(0 <= c && c < NUM_COLS){
         return true; 
       }
-  }
+    }
     return false;
 }
 public int countMines(int row, int col)
@@ -138,9 +140,9 @@ public class MSButton
     public void mousePressed () 
     {
         clicked = true;
-        if(mouseButton == RIGHT && !clicked){
+        if(mouseButton == RIGHT){
           flagged = !flagged;
-          if(flagged == false){
+          if(!flagged){
             clicked = false;
           }
         }
@@ -167,13 +169,13 @@ public class MSButton
     public void draw () 
     {    
         if (flagged)
-            fill(0);
+            fill(61, 38, 0);
         else if( clicked && mines.contains(this) ) 
-             fill(255,0,0);
+             fill(222, 182, 125);
         else if(clicked)
-            fill( 200 );
+            fill(108, 71, 12);
         else 
-            fill( 100 );
+            fill(220, 196, 157);
 
         rect(x, y, width, height);
         fill(0);
